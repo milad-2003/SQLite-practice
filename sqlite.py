@@ -17,3 +17,8 @@ try:
 except connection.Error as error:
     # Printing an error message for the user in case there is one
     print(f"Error occured - {error}")
+
+finally:
+    # Closing the connection whether we had an error or not
+    if connection:
+        connection.close()
