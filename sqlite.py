@@ -27,6 +27,24 @@ try:
                    Credit REAL,
                    Email TEXT
                    );""")
+    
+    # Inserting values into the table
+    cursor.execute("""INSERT INTO users VALUES
+                   ("Milad", 21, 1500.0, "miladvalizadeh2003@gmail.com");
+    """)
+
+    # Inserting values into the table in a different order
+    cursor.execute("""INSERT INTO users (Name, Credit, Email, Age) VALUES
+                   ("Amin", 1000.0, "amin@gmail.com", 19);
+""")
+    
+    # Inserting many values at the same time into the table
+    many_users = [
+        ("Alireza", 22, 2000.0, "alireza@gmail.com"),
+        ("Mahdi", 20, 500.0, "mahdi@gmail.com"),
+        ("Hosein", 19, 2500.0, "hosein@gmail.com")
+    ]
+    cursor.executemany("INSERT INTO users VALUES(?, ?, ?, ?)", many_users)
 
     # Closing the cursor when we are done with it
     cursor.close()
