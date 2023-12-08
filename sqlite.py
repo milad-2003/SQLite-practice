@@ -90,6 +90,9 @@ try:
     for i in data:
         print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
 
+    # Commit the changes to the database
+    connection.commit()
+
     # Closing the cursor when we are done with it
     cursor.close()
     
