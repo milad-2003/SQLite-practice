@@ -46,6 +46,41 @@ try:
     ]
     cursor.executemany("INSERT INTO users VALUES(?, ?, ?, ?)", many_users)
 
+    # Printing all the items
+    print("\nAll the items:")
+    cursor.execute("SELECT * FROM users")
+    data = cursor.fetchall()
+    print("Name\tAge\tCredit\tEmail")
+    print("----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}")
+
+    # Printing all the items with their row id
+    print("\nAll the items with their row id:")
+    cursor.execute("SELECT rowid, * FROM users")
+    data = cursor.fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
+    # Printing some of the items with their row id (In this case: First 3 rows)
+    print("\nSome of the items with their row id:")
+    cursor.execute("SELECT rowid, * FROM users")
+    data = cursor.fetchmany(3)
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
+    # Printing one item without its row id (First row)
+    print("\nOne item without its row id:")
+    cursor.execute("SELECT * FROM users")
+    data = cursor.fetchone()
+    print("Name\tAge\tCredit\tEmail")
+    print("----\t---\t------\t-----")
+    print(f"{data[0]}\t{data[1]}\t{data[2]}\t{data[3]}")
+
     # Closing the cursor when we are done with it
     cursor.close()
     
