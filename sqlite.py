@@ -16,6 +16,10 @@ try:
     result = cursor.fetchall()
     print(f"The currunt version of sqlite is {result}")
 
+    # Dropping the table if it already exists,
+    # to prevent error: "table users already exists"
+    cursor.execute("DROP TABLE IF EXISTS users")
+
     # Creating a table named users with 4 columns
     cursor.execute("""CREATE TABLE users (
                    Name TEXT,
