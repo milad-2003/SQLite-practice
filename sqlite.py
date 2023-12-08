@@ -3,6 +3,7 @@ import sqlite3
 try:
     # Connecting the database and creating a cursor object
     connection = sqlite3.connect("database.db")
+    print("[+] Connected to the database...")
 
     # Creating a cursor object of the connection
     cursor = connection.cursor()
@@ -22,3 +23,4 @@ finally:
     # Closing the connection whether we had an error or not
     if connection:
         connection.close()
+        print("[+] Connection has been closed")
