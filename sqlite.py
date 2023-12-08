@@ -14,5 +14,6 @@ try:
     # Closing the cursor when we are done with it
     cursor.close()
     
-except:
-    pass
+except connection.Error as error:
+    # Printing an error message for the user in case there is one
+    print(f"Error occured - {error}")
