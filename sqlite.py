@@ -8,9 +8,13 @@ try:
     # Creating a cursor object of the connection
     cursor = connection.cursor()
 
-    # Some code here to modify the database using the cursor...
-    # Some code here to modify the database using the cursor...
-    # Some code here to modify the database using the cursor...
+    # Executing queries on the database
+    query = "select sqlite_version();"
+    cursor.execute(query)
+
+    # Fetch and output result
+    result = cursor.fetchall()
+    print(f"The currunt version of sqlite is {result}")
 
     # Closing the cursor when we are done with it
     cursor.close()
