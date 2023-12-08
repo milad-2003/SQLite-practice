@@ -16,6 +16,14 @@ try:
     result = cursor.fetchall()
     print(f"The currunt version of sqlite is {result}")
 
+    # Creating a table named users with 4 columns
+    cursor.execute("""CREATE TABLE users (
+                   Name TEXT,
+                   Age INTEGER,
+                   Credit REAL,
+                   Email TEXT
+                   );""")
+
     # Closing the cursor when we are done with it
     cursor.close()
     
