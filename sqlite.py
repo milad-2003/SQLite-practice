@@ -81,6 +81,15 @@ try:
     print("----\t---\t------\t-----")
     print(f"{data[0]}\t{data[1]}\t{data[2]}\t{data[3]}")
 
+    # Selecting and printing items with a condition using WHERE Clause
+    print("\nItems with an age greater than 20:")
+    cursor.execute("SELECT rowid, * FROM users WHERE Age > 20")
+    data = cursor.fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
     # Closing the cursor when we are done with it
     cursor.close()
     
