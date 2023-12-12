@@ -125,6 +125,16 @@ try:
     for i in data:
         print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
 
+    # Deleting a row
+    print("\nDeleting the 4th row and printing the table:")
+    cursor.execute("DELETE from users WHERE rowid = 4")
+    data = cursor.execute("SELECT rowid, * FROM users").fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+    
+
     # Commit the changes to the database
     connection.commit()
 
