@@ -108,6 +108,23 @@ try:
     for i in data:
         print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
 
+    # Sorting the rows
+    print("\nSorting the rows in the Ages order, descending:")
+    cursor.execute("SELECT rowid, * FROM users ORDER BY Age DESC")
+    data = cursor.fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
+    print("\nSorting the rows in the Ages order, ascending:")
+    cursor.execute("SELECT rowid, * FROM users ORDER BY Age ASC")
+    data = cursor.fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
     # Commit the changes to the database
     connection.commit()
 
