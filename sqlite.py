@@ -90,10 +90,19 @@ try:
     for i in data:
         print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
 
-    #Selecting and printing items that their name starts with "M"
+    # Selecting and printing items that their name starts with "M"
     print("\nItems that their name starts with 'M':")
     cursor.execute("SELECT rowid, * FROM users WHERE Name LIKE 'M%'")
     data = cursor.fetchall()
+    print("ID\tName\tAge\tCredit\tEmail")
+    print("--\t----\t---\t------\t-----")
+    for i in data:
+        print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
+
+    # Updating the database
+    print("\nUpdating the data of the second row and printing the table")
+    cursor.execute("UPDATE users SET Age = 40 WHERE rowid = 2")
+    data = cursor.execute("SELECT rowid, * FROM users").fetchall()
     print("ID\tName\tAge\tCredit\tEmail")
     print("--\t----\t---\t------\t-----")
     for i in data:
