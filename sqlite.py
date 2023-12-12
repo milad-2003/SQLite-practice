@@ -118,7 +118,7 @@ try:
         print(f"{i[0]}\t{i[1]}\t{i[2]}\t{i[3]}\t{i[4]}")
 
     print("\nSorting the rows in the Ages order, ascending:")
-    cursor.execute("SELECT rowid, * FROM users ORDER BY Age ASC")
+    cursor.execute("SELECT rowid, * FROM users ORDER BY Age ASC") # ASC is the default. So using it is optional
     data = cursor.fetchall()
     print("ID\tName\tAge\tCredit\tEmail")
     print("--\t----\t---\t------\t-----")
